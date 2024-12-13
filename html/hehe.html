@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tap Image to Play Audio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .image-container {
+      display: inline-block;
+      position: relative;
+      width: 300px;
+      cursor: pointer;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .instruction {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tap the Image to Play Audio</h1>
+  <div class="image-container" id="image-container">
+    <img src="image.jpeg" alt="Tap to play audio">
+  </div>
+  <p class="instruction">Tap the image above to hear the audio!</p>
+
+  <audio id="audio" src="song1.mp3"></audio>
+
+  <script>
+    // Ensure the DOM is loaded before running JavaScript
+    document.addEventListener("DOMContentLoaded", function () {
+      const imageContainer = document.getElementById('image-container');
+      const audio = document.getElementById('audio');
+
+      // Add an event listener to play/pause audio on image click
+      imageContainer.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
